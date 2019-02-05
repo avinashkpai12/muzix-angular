@@ -1,0 +1,34 @@
+
+  <div class="panel panel-default">
+    <div class="panel-heading">{{ trackObj.trackName | uppercase }}</div>
+    <div class="panel-body">
+      <div *ngIf="count">  
+          <input #comment class="form-control mr-sm-2" type="search" placeholder="Update" aria-label="Search" (keyup) = "getcomment(comment.value)">
+      </div>
+    <p> {{ trackObj.trackComments }}
+        &nbsp;
+        <a (click) = "updateCommentsField()" class="btn btn-primary">Change</a>
+      </p>
+      <img
+        class="card-img-top"
+        src="{{ trackObj.url }}"
+        alt="Card image cap"
+      />
+    </div>
+    <div class="panel-footer">
+      Listners: {{ trackObj.listeners }}<br />
+      <br /><br />
+      
+      <a (click) = "deleteTrack(trackObj.trackId)" class="btn btn-primary" onClick = "window.location.reload();">Delete</a>&nbsp;
+      <a (click) = "updateTrackComments(trackObj.trackId, commentval)" class="btn btn-primary" onClick = "window.location.reload()">Update</a>
+      
+    </div>
+  </div>
+
+  <div *ngIf="trackiddel">
+    <app-crudmethods [mbiddelete] = "trackiddel"></app-crudmethods>
+  </div>
+
+  <div *ngIf="updateObject.trackId">
+    <app-crudmethods [updateObj] = "updateObject"></app-crudmethods>
+  </div>

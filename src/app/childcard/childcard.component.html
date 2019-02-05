@@ -1,0 +1,19 @@
+
+  <div class="panel panel-default">
+    <div class="panel-heading">{{ trackObj.name | uppercase }}</div>
+    <div class="panel-body">
+      <p>{{ trackObj.artist }}</p>
+      <img
+        class="card-img-top"
+        src="{{ trackObj.image[3]['#text'] }}"
+        alt="Card image cap"
+      />
+    </div>
+    <div class="panel-footer">
+      Listners: {{ trackObj.listeners }}<br />
+      <br /><a (click)="saveTrack(trackObj.mbid)" class="btn btn-primary">{{buttonVal}}</a>
+    </div>
+  </div>
+<div *ngIf="trackid">
+<app-crudmethods [mbidsave] = "trackid"></app-crudmethods>
+</div>
